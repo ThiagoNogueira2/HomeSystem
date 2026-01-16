@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-public-sans: "Public Sans", sans-serif;
+}
+
+@layer base {
+  html, body {
+    @apply font-sans bg-gray-100;
+  }
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.container2 {
+  width: 1600px;
+  margin: 0 auto;
+}
+
