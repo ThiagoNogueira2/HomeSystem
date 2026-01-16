@@ -38,13 +38,13 @@
         </div>
       </div>
 
-      <div :class="['min-[1200px]:hidden transition-all duration-300', isScrolled ? 'bg-black/90 backdrop-blur-lg shadow-xl' : '']">
+      <div :class="['min-[1200px]:hidden transition-all duration-300 relative z-50', isScrolled ? 'bg-black/90 backdrop-blur-lg shadow-xl' : '']">
         <div class="flex items-center justify-between px-6 md:px-10 py-5">
           <div class="text-white font-bold text-2xl tracking-widest">PARALLAX</div>
           
           <button
             @click="toggleMenu"
-            class="relative z-50 w-12 h-12 flex flex-col items-center justify-center gap-2 focus:outline-none group"
+            class="relative w-12 h-12 flex flex-col items-center justify-center gap-2 focus:outline-none group touch-manipulation"
             aria-label="Menu"
           >
             <span :class="[
@@ -119,10 +119,10 @@
       </div>
     </Transition>
 
-    <div class="absolute inset-0 flex justify-center text-center pt-70">
-        <div class="max-[1199px]:pt-0 max-[1199px]:mt-20">
-            <p class="text-base text-white mb-4 font-public-sans max-[1199px]:text-sm">PARALLAX CUSTOM HOMES</p>
-            <h1 class="text-7xl text-white italic mb-8 max-[1199px]:text-4xl md:max-[1199px]:text-5xl lg:max-[1199px]:text-6xl max-[1199px]:leading-tight max-[1199px]:px-6">Você é único. <br>Sua casa também deverá ser.</h1>
+    <div class="absolute inset-0 flex justify-center items-center text-center pt-70 max-[1199px]:pt-0">
+        <div class="max-[1199px]:px-6 pt-10">
+            <p class="text-base text-white mb-4 font-public-sans max-[1199px]:text-sm max-[1199px]:mb-6">PARALLAX CUSTOM HOMES</p>
+            <h1 class="text-7xl text-white italic mb-8 max-[1199px]:text-4xl md:max-[1199px]:text-5xl lg:max-[1199px]:text-6xl max-[1199px]:leading-tight max-[1199px]:mb-10">Você é único. <br>Sua casa também deverá ser.</h1>
             <a href="#" class="bg-[#141414] px-12 py-6 text-white items-center gap-2 inline-flex font-bold max-[1199px]:px-8 max-[1199px]:py-4">
                 Get a Quote
                 <Svg />
