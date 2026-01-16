@@ -133,7 +133,7 @@
     </div>
 
     
-    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-8 hidden max-md:flex max-md:inset-0 max-md:h-[100dvh]">
+    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-6 hidden max-md:flex max-md:inset-0 max-md:h-[100dvh]">
         <div class="mb-8">
             <p class="text-sm text-white mb-4 font-public-sans">PARALLAX CUSTOM HOMES</p>
             <h1 class="text-3xl text-white italic leading-tight">Você é único. <br>Sua casa também será!</h1>
