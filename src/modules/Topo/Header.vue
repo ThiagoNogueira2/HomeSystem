@@ -133,7 +133,7 @@
     </div>
 
     
-    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-9 hidden max-md:flex max-md:inset-0 max-md:h-[100dvh]">
+    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-8 hidden max-md:flex max-md:inset-0 max-md:h-[100dvh]">
         <div class="mb-8">
             <p class="text-sm text-white mb-4 font-public-sans">PARALLAX CUSTOM HOMES</p>
             <h1 class="text-3xl text-white italic leading-tight">Você é único. <br>Sua casa também será!</h1>
@@ -142,7 +142,7 @@
         <div>
             <a 
                 href="#" 
-                class="group w-full flex items-center justify-between px-6 py-2 bg-[#141414] text-white text-xl font-bold tracking-wider transition-all duration-300 border-b-2 border-white hover:border-white/70"
+                class="group w-full flex items-center justify-between px-6 py-3 bg-[#141414] text-white text-xl font-bold tracking-wider transition-all duration-300 border-b-2 border-white hover:border-white/70"
             >
                 <span>Get a Quote</span>
                 <Svg class="text-white group-hover:translate-x-2 transition-transform duration-300" />
