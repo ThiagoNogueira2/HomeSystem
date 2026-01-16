@@ -38,25 +38,25 @@
         </div>
       </div>
 
-      <div :class="['min-[1200px]:hidden transition-all duration-300', isScrolled ? 'bg-black/90 backdrop-blur-lg shadow-xl' : '']">
+      <div :class="['min-[1200px]:hidden transition-all duration-300 relative z-50', isScrolled ? 'bg-black/90 backdrop-blur-lg shadow-xl' : '']">
         <div class="flex items-center justify-between px-6 md:px-10 py-5">
           <div class="text-white font-bold text-2xl tracking-widest">PARALLAX</div>
           
           <button
-            @click="toggleMenu"
-            class="relative z-50 w-12 h-12 flex flex-col items-center justify-center gap-2 focus:outline-none group"
+            @click.stop="toggleMenu"
+            class="relative w-12 h-12 flex flex-col items-center justify-center gap-2 focus:outline-none group touch-manipulation"
             aria-label="Menu"
           >
             <span :class="[
-              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out',
+              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out pointer-events-none',
               menuOpen ? 'rotate-45 translate-y-2.5' : 'group-hover:w-9'
             ]"></span>
             <span :class="[
-              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out',
+              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out pointer-events-none',
               menuOpen ? 'opacity-0 scale-0' : 'opacity-100 group-hover:w-9'
             ]"></span>
             <span :class="[
-              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out',
+              'w-7 h-0.5 bg-white transition-all max-[1199px]:duration-200 duration-500 ease-out pointer-events-none',
               menuOpen ? '-rotate-45 -translate-y-2.5' : 'group-hover:w-9'
             ]"></span>
           </button>
@@ -67,28 +67,29 @@
     <Transition name="menu-overlay">
       <div 
         v-if="menuOpen" 
-        class="min-[1200px]:hidden fixed inset-0 z-40"
+        class="min-[1200px]:hidden fixed inset-0 z-40 overflow-y-auto"
+        @click.self="closeMenu"
       >
         <div 
           class="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black backdrop-blur-2xl"
-          @click="closeMenu"
+          @click.stop="closeMenu"
         ></div>
         
-        <div class="relative h-full flex flex-col items-center justify-center px-8 md:px-16">
+        <div class="relative z-10 min-h-full flex flex-col items-center justify-center px-8 md:px-16 py-20">
           <div class="absolute top-8 left-8 md:left-16 text-white/20 text-xs tracking-[0.3em] uppercase font-light">
             Menu
           </div>
           
-          <ul class="space-y-6 md:space-y-10 text-center mb-16">
+          <ul class="space-y-6 md:space-y-10 text-center mb-16 relative z-10">
             <li 
               v-for="(item, index) in menuItems" 
               :key="item.name"
               class="menu-item-animate"
-              :style="{ animationDelay: `${index * 80}ms` }"
+              :style="{ animationDelay: `${index * 50}ms` }"
             >
               <a 
                 :href="item.href" 
-                class="group relative inline-block text-white text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tight py-3 transition-all duration-500 hover:text-white/70"
+                class="group relative inline-block text-white text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight py-3 transition-all duration-500 hover:text-white/70"
                 @click="closeMenu"
               >
                 <span class="relative z-10">{{ item.name }}</span>
@@ -97,10 +98,10 @@
             </li>
           </ul>
 
-          <div class="menu-item-animate" style="animation-delay: 320ms">
+          <div class="menu-item-animate relative z-10" style="animation-delay: 200ms">
             <a 
               href="#" 
-              class="group relative px-14 py-6 bg-white text-black flex items-center gap-4 font-bold text-base tracking-wider overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10"
+              class="group relative px-10 py-5 md:px-14 md:py-6 bg-white text-black flex items-center gap-4 font-bold text-base tracking-wider overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-white/10"
               @click="closeMenu"
             >
               <span class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
@@ -109,7 +110,7 @@
             </a>
           </div>
 
-          <div class="absolute bottom-8 text-white/30 text-xs tracking-[0.25em] font-light menu-item-animate" style="animation-delay: 400ms">
+          <div class="absolute bottom-8 text-white/30 text-xs tracking-[0.25em] font-light menu-item-animate z-10" style="animation-delay: 250ms">
             CUSTOM HOMES · BUILT WITH PASSION
           </div>
 
@@ -148,15 +149,20 @@ const menuItems = [
 ]
 
 const toggleMenu = () => {
+  console.log('Toggle menu chamado. Estado atual:', menuOpen.value)
   menuOpen.value = !menuOpen.value
+  
   if (menuOpen.value) {
     document.body.style.overflow = 'hidden'
   } else {
     document.body.style.overflow = ''
   }
+  
+  console.log('Novo estado:', menuOpen.value)
 }
 
 const closeMenu = () => {
+  console.log('Close menu chamado')
   menuOpen.value = false
   document.body.style.overflow = ''
 }
@@ -200,7 +206,7 @@ onUnmounted(() => {
 @keyframes menu-item-in {
   from {
     opacity: 0;
-    transform: translateY(60px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -210,7 +216,7 @@ onUnmounted(() => {
 
 .menu-item-animate {
   opacity: 0;
-  animation: menu-item-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: menu-item-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>
 
