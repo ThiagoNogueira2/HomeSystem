@@ -1,11 +1,11 @@
 <template>
-  <header class="mx-auto relative h-screen w-auto">
+  <header class="mx-auto relative h-screen w-auto max-md:h-[100dvh] max-md:min-h-[100dvh]">
     <img
       src="@/assets/home.jpg"
       alt="Imagem de fundo"
-      class="absolute h-full w-full object-cover object-center"
+      class="absolute h-full w-full object-cover object-center max-md:h-[100dvh]"
     />
-    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 bg-black/40 max-md:inset-0 max-md:h-[100dvh]"></div>
 
     <div class="absolute -bottom-30 left-42 right-0 bg-white p-20 z-10 max-[1199px]:hidden">
       <div class="mx-auto flex gap-12">
@@ -133,7 +133,7 @@
     </div>
 
     
-    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-13 hidden max-md:flex">
+    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-13 hidden max-md:flex max-md:inset-0 max-md:h-[100dvh]">
         <div class="mb-8">
             <p class="text-sm text-white mb-4 font-public-sans">PARALLAX CUSTOM HOMES</p>
             <h1 class="text-3xl text-white italic leading-tight">Você é único. <br>Sua casa também será!</h1>
