@@ -120,13 +120,32 @@
       </div>
     </Transition>
 
-    <div class="absolute inset-0 flex justify-center text-center pt-70 max-[1199px]:items-center max-[1199px]:pt-0">
-        <div class="max-[1199px]:px-6">
+    <!-- Desktop -->
+    <div class="absolute inset-0 flex justify-center text-center pt-70 max-md:hidden">
+        <div>
             <p class="text-base text-white mb-4 font-public-sans max-[1199px]:text-sm">PARALLAX CUSTOM HOMES</p>
-            <h1 class="text-7xl text-white italic mb-8 max-[1199px]:text-4xl md:max-[1199px]:text-5xl lg:max-[1199px]:text-6xl max-[1199px]:leading-tight max-[1199px]:px-0">Você é único. <br>Sua casa também deverá ser.</h1>
-            <a href="#" class="bg-[#141414] px-12 py-6 text-white items-center gap-2 inline-flex font-bold max-[1199px]:px-8 max-[1199px]:py-4">
+            <h1 class="text-7xl text-white italic mb-8 max-[1199px]:text-5xl max-[1199px]:leading-tight">Você é único. <br>Sua casa também deverá ser.</h1>
+            <a href="#" class="bg-[#141414] px-12 py-6 text-white items-center gap-2 inline-flex font-bold">
                 Get a Quote
                 <Svg />
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile (MD para baixo) - Botão embaixo com borda -->
+    <div class="absolute inset-0 flex flex-col justify-end text-left px-6 pb-8 hidden max-md:flex">
+        <div class="mb-8">
+            <p class="text-sm text-white mb-4 font-public-sans">PARALLAX CUSTOM HOMES</p>
+            <h1 class="text-3xl text-white italic leading-tight">Você é único. <br>Sua casa também deverá ser.</h1>
+        </div>
+        
+        <div>
+            <a 
+                href="#" 
+                class="group w-full flex items-center justify-between px-6 py-4 bg-[#141414] text-white text-xl font-bold tracking-wider transition-all duration-300 border-b-2 border-white hover:border-white/70"
+            >
+                <span>Get a Quote</span>
+                <Svg class="text-white group-hover:translate-x-2 transition-transform duration-300" />
             </a>
         </div>
     </div>
