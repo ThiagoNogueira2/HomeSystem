@@ -5,9 +5,9 @@
       alt="Imagem de fundo"
       class="absolute h-full w-full object-cover object-center"
     />
-    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 bg-black/40 "></div>
 
-    <div class="absolute -bottom-30 left-42 right-0 bg-white p-20 z-10 max-[1199px]:hidden">
+    <div class="absolute -bottom-30 left-42 right-0 bg-white p-20  z-10 max-[1199px]:hidden">
       <div class="mx-auto flex gap-12">
         <div class="flex-1">
           <h2 class="text-4xl text-black">Casas personalizadas<br>construídas por humanos,<br>para humanos</h2>

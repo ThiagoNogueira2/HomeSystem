@@ -1,7 +1,7 @@
 <template>
   <Header />
-  <!-- <Experiencia />
-  <Projetos />
+  <Experiencia />
+  <!-- <Projetos />
   <Footer />  -->
 </template>
 
