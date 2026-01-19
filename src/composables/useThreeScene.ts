@@ -12,6 +12,7 @@ export function useThreeScene(canvasRef: any) {
   let currentTexture: THREE.Texture | null = null;
   let animationFrameId: number | null = null;
   let baseRotation = 0;
+  const textureCache = new Map<string, THREE.Texture>();
 
   const initThreeScene = () => {
     if (!canvasRef.value) return;
@@ -62,8 +63,13 @@ export function useThreeScene(canvasRef: any) {
   const updateTexture = (imageUrl: string) => {
     if (!plane || !renderer) return;
 
-    if (currentTexture) {
-      currentTexture.dispose();
+    if (textureCache.has(imageUrl)) {
+      const texture = textureCache.get(imageUrl)!;
+      if (plane.material instanceof THREE.MeshBasicMaterial) {
+        plane.material.map = texture;
+      }
+      currentTexture = texture;
+      return;
     }
 
     const textureLoader = new THREE.TextureLoader();
@@ -74,15 +80,14 @@ export function useThreeScene(canvasRef: any) {
       texture.magFilter = THREE.LinearFilter;
       texture.anisotropy = renderer!.capabilities.getMaxAnisotropy();
       
+      textureCache.set(imageUrl, texture);
+
       const newMaterial = new THREE.MeshBasicMaterial({
         map: texture,
         side: THREE.DoubleSide
       });
 
       if (plane.material instanceof THREE.MeshBasicMaterial) {
-        if (plane.material.map) {
-          plane.material.map.dispose();
-        }
         plane.material.dispose();
       }
       
@@ -111,15 +116,11 @@ export function useThreeScene(canvasRef: any) {
     if (plane) {
       if (plane.geometry) plane.geometry.dispose();
       if (plane.material instanceof THREE.MeshBasicMaterial) {
-        if (plane.material.map) {
-          plane.material.map.dispose();
-        }
         plane.material.dispose();
       }
     }
-    if (currentTexture) {
-      currentTexture.dispose();
-    }
+    textureCache.forEach(texture => texture.dispose());
+    textureCache.clear();
   };
 
   onMounted(() => {
