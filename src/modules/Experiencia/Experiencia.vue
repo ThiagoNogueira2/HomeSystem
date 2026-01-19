@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#e8e8e8] pb-20 pt-10 pb-10 min-[1200px]:pt-45 min-[1200px]:pb-32 relative ">
+  <section class="bg-[#e8e8e8] pb-20 pt-10 pb-10 min-[1200px]:pt-52 min-[1200px]:pb-32 relative ">
     <div class="mx-auto px-4 max-w-6xl relative z-10">
       <h1 class="text-4xl sm:text-3xl lg:text-4xl mb-8 text-[#141414]">
         Our <span class="italic">Expertise</span>
