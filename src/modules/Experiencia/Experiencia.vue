@@ -1,7 +1,7 @@
 <template>
   <section class="bg-[#e8e8e8] py-15 pb-40 min-[1200px]:py-45 relative">
     <div class="mx-auto px-4 max-w-6xl relative z-10">
-      <h1 class="text-2xl sm:text-4xl lg:text-6xl mb-8 text-[#141414]">
+      <h1 class="text-4xl sm:text-3xl lg:text-4xl mb-8 text-[#141414]">
         Our <span class="italic">Expertise</span>
       </h1>
       
