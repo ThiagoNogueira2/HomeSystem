@@ -1,8 +1,8 @@
 <template>
   <Header />
   <Experiencia />
-  <!-- <Projetos />
-  <Footer />  -->
+  <Projetos />
+  <!-- <Footer />  -->
 </template>
 
 <script setup lang="ts">

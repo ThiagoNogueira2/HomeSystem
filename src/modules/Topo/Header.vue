@@ -120,7 +120,7 @@
       </div>
     </Transition>
 
-    <!-- Desktop -->
+    
     <div class="absolute inset-0 flex justify-center text-center pt-70 max-md:hidden">
         <div>
             <p class="text-base text-white mb-4 font-public-sans max-[1199px]:text-sm">PARALLAX CUSTOM HOMES</p>
