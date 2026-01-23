@@ -22,6 +22,7 @@
                 
                 <div class="col-span-2 md:col-span-4 lg:col-span-1 text-center md:text-left">
                     <h2 class="text-2xl md:text-3xl text-[#141414] italic font-semibold mb-6 md:mb-0">Parallax</h2>
+                    
                 </div>
 
               
